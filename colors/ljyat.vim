@@ -1,11 +1,10 @@
+if !has('gui_running')
+   finish
+endif
 
 hi clear
-
 set background=dark
 if version > 580
-    " no guarantees for version 5.8 and below, but this makes it stop
-    " complaining
-    hi clear
     if exists("syntax_on")
         syntax reset
     endif
@@ -14,36 +13,43 @@ let g:colors_name="ljyat"
 
 hi Pmenu     guibg=DarkGreen	 guifg=white
 hi PmenuSel  guibg=DarkBlue 	 guifg=white
-
 hi Boolean         guifg=gold4
-hi String          term=underline cterm=underline ctermfg=9 guifg=#80a0ff 
-hi Comment    	   term=bold ctermfg=5 gui=italic guifg=#70665E
-hi Constant        guifg=#F94C87  gui=bold
+hi Comment    	   term=bold ctermfg=5 gui=italic guifg=#999999
+hi Number          guifg=#F94C87
 hi Folded          guifg=white guibg=#403D3D 
 hi FoldColumn      guifg=white guibg=#403D3D 
-hi Statement       term=bold ctermfg=14 gui=bold guifg=#86C711
-
-hi Function        guifg=#21BC71   gui=bold
+hi Statement       term=bold ctermfg=14  guifg=#86C711
+hi Function        guifg=#21BC71 gui=bold 
+hi Title           guifg=#21BC71 gui=NONE
 hi Keyword         guifg=#E6C84F   gui=NONE
-hi DefinedName 	   guifg=#E6C84F   gui=NONE 
-hi EnumerationValue guifg=#E6C84F   gui=NONE
 
-hi Type            guifg=#6AA86A 
+hi Type            guifg=#95e454 gui=NONE
 hi VertSplit       guifg=#808080 guibg=#080808 gui=bold
 hi VisualNOS                     guibg=#403D3D
-hi Visual                        guibg=#403D3D
-hi Member          gui=NONE
-hi GlobalVariable   guifg=orange 
-hi Normal ctermfg=252 ctermbg=234 guifg=#e3e0d7 guibg=#242424 
+hi Visual          guifg=black   guibg=white
+hi Normal guifg=White guibg=grey20
 hi CursorLine                    guibg=#293739
 hi CursorColumn                  guibg=#293739
 hi LineNr          guifg=#BCBCBC guibg=#232526
 hi NonText         guifg=#BCBCBC guibg=#232526
 hi StatusLine      guifg=black   guibg=#C2BFA5 gui=bold
+hi Search          guifg=green guibg=black
+hi Identifier      guifg=cyan
+hi String     guifg=#FF80FF         
+hi DefinedName    guifg=#FFCC00
+hi clear Constant
 
+hi! def link Typedef        Structure
+hi! def link CTagsType        Structure
+hi! def link StatusLineNC   StatusLine
 hi! def link cLabel	    	Statement
 hi! def link cConditional   Statement
 hi! def link cRepeat		Statement
 hi! def link cStatement     Statement
 hi! def link TagListFileName StatusLine 
+hi! def link EnumerationValue  DefinedName 
 
+hi! def link Question  Type
+"for java
+hi! def link Method     Function
+hi  Class           guifg=#00E000 gui=NONE
